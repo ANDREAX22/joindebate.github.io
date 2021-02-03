@@ -8,7 +8,7 @@
     <?php 
 	
 	if(array_key_exists("url", $_GET)) {
-	$urlre = "<script>window.open('siteurl');</script>";
+	$urlre = "<script>window.open('siteurl')</script>";
 	echo str_replace("siteurl", $_GET["url"], $urlre);
 	}
 	
