@@ -1,13 +1,302 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radio Marconi-Mangano</title>
-  </head>
-  <body>
-<iframe allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;" src="https://radio2m.altervista.org/">
-    Your browser doesn't support iframes
-</iframe>
+    <title>JoinDebate</title>
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8Oi8KAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD9zAL//MwD/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD8+NkC/swC//7LA//tyTPBmjP//5oz//+aM///AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/swC/wAAAAAAAAAAAAAAAJoz//+aM///mjP//5oz//8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/swC/wAAAAAAAAAA+8wD/+/dojeaRuzHnEbuy5oz//+aM///mzP9/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7MAv8AAAAAAAAAAAAAAAAAAAAAmjP//5oz//+aM///mjP//5oz//8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD+zAL/AAAAAAAAAAD6zAT/AAAAAJoz//+5g+o8mjP//5oz//+aM///AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/swB/+/QSZMAAAAAAAAAAAAAAACaM///mjP//5oz//+aM///t4TpSwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD+zAL/69JSgAAAAAAAAAAAmjP//5oz//+aM///mjP//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7KA//+zAL/+80C/5oz//+aM///mzr19gAAAADSp/ERAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACaM///mjP//5oz//8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmTP9/5oz//+aM///AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAP//AADz/wAA8D8AAO4fAADaDwAA3g8AANqPAADOHwAA5h8AAPA/AAD/xwAA/8cAAP//AAD//wAA//8AAA==" rel="icon" type="image/x-icon">
+    <!-- Includi Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-  </body>
-</html>
+</head>
+
+<style>.image-container {
+	position: relative;
+	display: inline-block;
+}
+
+.image-container img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.overlay-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: #fff;
+	font-size: 30px;
+	text-align: center;
+}
+
+@media screen and (min-width: 651px) {
+	.divImageBack {
+		position: relative;
+		/* Aggiunto per consentire il posizionamento assoluto all'interno */
+		display: inline-block;
+		/* Aggiunto per consentire il posizionamento assoluto all'interno */
+		height: 1000px;
+		/* Imposta l'altezza desiderata qui */
+	}
+}
+
+@media screen and (max-width: 650px) {
+	.divImageBack {
+		position: relative;
+		/* Aggiunto per consentire il posizionamento assoluto all'interno */
+		display: inline-block;
+		/* Aggiunto per consentire il posizionamento assoluto all'interno */
+		height: 400px;
+		/* Imposta l'altezza desiderata qui */
+	}
+}
+
+.divImageBack img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.imgOverlay {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 50%;
+	/* Puoi regolare la larghezza dell'overlay come desiderato */
+}
+
+
+.bgVideo {
+	background-image: url("./imgs/bgVideo.webp");
+	background-repeat: repeat;
+	width: 100%;
+	height: 500px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.textresp {
+	padding: 20px;
+}
+
+@media screen and (min-width: 601px) {
+	.textresp {
+		font-size: 30px;
+	}
+
+	#widgeDesktop {
+		display: flex;
+	}
+
+	#widgeMobile {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.textresp {
+		font-size: 18px;
+	}
+
+	#widgeDesktop {
+		display: none;
+	}
+
+	#widgeMobile {
+		display: flex;
+	}
+}
+
+/* Stili per il contenitore principale */
+.creator-section {
+    background-image: url("./imgs/bgCreator.gif");
+	background-repeat: repeat;
+	text-align: center;
+	padding: 20px;
+    color: white;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Stili per l'avatar */
+.avatar {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	object-fit: cover;
+	margin: 0 auto 20px;
+}
+
+/* Stili per il nome e cognome */
+.creator-name {
+	font-weight: bold;
+	font-size: 36px;
+	margin: 0;
+	font-family: 'Pacifico', cursive;
+}
+
+/* Stili per la descrizione */
+.creator-description {
+	font-size: 20px;
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+/* Media query per la responsività */
+@media (max-width: 768px) {
+	.avatar {
+		width: 150px;
+		height: 150px;
+	}
+
+	.creator-name {
+		font-size: 24px;
+	}
+
+	.creator-description {
+		font-size: 16px;
+	}
+}
+
+
+/* Stile per il footer */
+.footer {
+    background-color: #000000;
+    padding: 10px;
+    text-align: center;
+    position: sticky;
+    bottom: 0;
+    color: #ffffff;
+}
+</style>
+
+<body style="margin: 0">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="imgs/logoEmp.png" alt="Logo" width="30" height="30" class="d-inline-block align-top">
+            </a>
+            
+            <!-- Bottone per il menu a tendina -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Menu a tendina a sinistra -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sez1">Video</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sez2">Release</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sez3">Screens</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sez4">Creator</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Testo al centro -->
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <span class="navbar-text">
+                    <a style="color: black;">JoinDebate</a> a social By <a href="#sez4" style="color: gray;">Andrea Gambino</a>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <div id="sez1" class="bgVideo">
+        <iframe src="https://streamable.com/e/w92g3d" width="650" height="415" style="padding: 10px" frameborder="0" allowfullscreen></iframe>
+        <iframe id="widgeDesktop" src="https://www.kickstarter.com/projects/sbrick/connect-code-create-with-sbrick-plus/widget/card.html?v=2" width="220" height="420" frameborder="0" scrolling="no"></iframe>
+    </div>
+    <div id="widgeMobile" class="bgVideo">
+        <iframe src="https://www.kickstarter.com/projects/sbrick/connect-code-create-with-sbrick-plus/widget/card.html?v=2" width="220" height="420" frameborder="0" scrolling="no"></iframe>
+    </div>
+
+    <div style="background-color: black;">
+        <br><br><br>
+        <center>
+          <div class="image-container">
+            <img src="imgs/bgDate.gif" style="width: 80%;">
+            <div id="sez2" class="overlay-text">
+              <p class="textresp" style="font-family: Fantasy;">JoinDebate: "The app that will shape the future!"</p>
+              <p class="textresp" style="font-family: Tahoma;">Participate in the future with us</p>
+              <p class="textresp" style="font-family: Cursive;">Available from 2024</p>
+            </div>
+          </div>
+        </center>
+        <br><br><br>
+    </div>
+    <center>
+        <div id="screenImg" style="background-color: #301E67;">
+            <br>
+            <b><div id="sez3" class="textresp" style="color: white;">SCREENS: </div></b>
+        </div>
+    </center>
+
+    <div class="creator-section">
+        <br><br>
+        <img src="imgs/avatar.jpg" alt="Avatar" class="avatar">
+        <p class="creator-name">Andrea Gambino</p>
+        <p class="creator-description">
+            <mark id="sez4">
+                I am an expert in the field of web development and database analysis, with strong skills in programming languages C and C++. I graduated with top honors from a technical institute specializing in computer science, and I am currently completing my first year of studies in computer engineering. I am also dedicating time to studying blockchain technology and developing websites, like this one, as a hobby.
+            </mark>
+            <br><br><br>
+        </p>
+    </div>
+
+    <div class="footer">
+        &copy; JoinDebate - Website created by <a href="#sez4">Andrea Gambino</a>
+    </div>
+
+    <!-- Bottone per tornare all'inizio della pagina -->
+    <button id="backToTopBtn" class="btn btn-primary" style="position: fixed; bottom: 55px; right: 20px; display: none;">
+        Back to Top ^
+    </button>
+</body>
+
+<!-- Includi jQuery, Popper.js e Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    insertScreens();
+    
+    function insertScreens() {
+        let stringHTML = "";
+        for (let i=0; i<6; i++) {
+            stringHTML += `<div class="divImageBack">
+                                <img src="imgs/bgScreen.gif">
+                                <img class="imgOverlay" src="imgs/im`+ (i+1) +`.jpeg">
+                            </div>`;
+        }
+        document.getElementById("screenImg").innerHTML += stringHTML;
+    }
+
+    // Mostra o nasconde il bottone "Torna all'inizio" in base alla posizione della pagina
+    window.onscroll = function() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("backToTopBtn").style.display = "block";
+    } else {
+        document.getElementById("backToTopBtn").style.display = "none";
+    }
+    };
+
+    // Torna all'inizio della pagina quando si fa clic sul bottone
+    document.getElementById("backToTopBtn").onclick = function() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    };
+
+</script>
