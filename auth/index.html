@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFrame a Schermo Intero con Query String</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Funzione per ottenere la query string dalla URL della pagina
+        function getQueryString() {
+            var queryString = window.location.search;
+            return queryString;
+        }
+
+        // Funzione per aggiornare l'URL dell'iframe con la query string
+        function updateIframeSrc() {
+            var iframe = document.querySelector('iframe');
+            var iframeSrc = "http://facemask.iceiy.com/" + getQueryString();
+            iframe.src = iframeSrc;
+        }
+
+        // Chiamare la funzione all'avvio della pagina
+        window.onload = updateIframeSrc;
+    </script>
+
+    <iframe frameborder="0"></iframe>
+</body>
+</html>
