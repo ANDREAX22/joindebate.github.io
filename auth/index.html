@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IFrame a Schermo Intero con Query String</title>
+    <title>Richiesta AJAX con Parametri dalla Query String</title>
     <style>
         body, html {
             margin: 0;
@@ -12,32 +12,34 @@
             overflow: hidden;
         }
 
-        iframe {
+        #result {
             width: 100%;
             height: 100%;
-            border: none;
+            overflow: auto;
         }
     </style>
 </head>
 <body>
+    <div id="result"></div>
+
     <script>
-        // Funzione per ottenere la query string dalla URL della pagina
-        function getQueryString() {
+        function loadContent() {
             var queryString = window.location.search;
-            return queryString;
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'http://facemask.iceiy.com/' + queryString, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        document.getElementById('result').innerHTML = xhr.responseText;
+                    } else {
+                        document.getElementById('result').innerHTML = 'Errore durante il caricamento del contenuto.';
+                    }
+                }
+            };
+            xhr.send();
         }
 
-        // Funzione per aggiornare l'URL dell'iframe con la query string
-        function updateIframeSrc() {
-            var iframe = document.querySelector('iframe');
-            var iframeSrc = "http://facemask.iceiy.com/" + getQueryString();
-            iframe.src = iframeSrc;
-        }
-
-        // Chiamare la funzione all'avvio della pagina
-        window.onload = updateIframeSrc;
+        window.onload = loadContent;
     </script>
-
-    <iframe frameborder="0"></iframe>
 </body>
 </html>
