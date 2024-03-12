@@ -26,7 +26,7 @@
         function loadContent() {
             var queryString = window.location.search;
             var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'http://facemask.iceiy.com/' + queryString, true);
+            xhr.open('GET', 'https://corsproxy.io/?http://facemask.iceiy.com/' + queryString, true);
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     if (xhr.status === 200) {
